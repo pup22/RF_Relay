@@ -9,9 +9,9 @@
 #define BUTTON 5
 #define RELAY 6
 #define RECIVER 0				// 2 пин arduino (прерывение для ресивера)
-#define EEPROM_ADDR 600 // начальный адрес EEPROM
-#define COUNT_MAX 5			//максимальное количество записей
-#define TIME_RELAY 5000 // время работы реле
+#define EEPROM_ADDR 200 // начальный адрес EEPROM
+#define COUNT_MAX 20			//максимальное количество записей
+#define TIME_RELAY 30000 // время работы реле
 
 RCSwitch mySwitch = RCSwitch();
 OneButton button(BUTTON, true, true);
@@ -95,7 +95,7 @@ void setup()
 	pinMode(LED, OUTPUT);
 
 	if (!digitalRead(BUTTON))
-	{ // если при старте нажата кнопка больше секунды - стираем все коды
+	{ // если при старте нажата кнопка больше 2 секунд - стираем все коды
 		delay(2000);
 		if (!digitalRead(BUTTON))
 		{
